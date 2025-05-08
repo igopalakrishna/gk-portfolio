@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #ededed;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #000000;
+    --foreground: #ededed;
+  }
+}
+
+html,
+body {
+  /* @apply text-white font-sans; */
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+
+  /* Apply full-page gradient here */
+  background: linear-gradient(135deg, #000000 0%, #0a0f1e 50%, #000000 100%);
+
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: pulseBg 20s ease-in-out infinite;
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: inset(0 0 5% 0);
+  }
+  20% {
+    clip-path: inset(10% 0 20% 0);
+    transform: translate(2px, -2px);
+  }
+  40% {
+    clip-path: inset(5% 0 10% 0);
+    transform: translate(-2px, 2px);
+  }
+  60% {
+    clip-path: inset(15% 0 5% 0);
+    transform: translate(2px, 2px);
+  }
+  80% {
+    clip-path: inset(10% 0 15% 0);
+    transform: translate(-2px, -2px);
+  }
+  100% {
+    clip-path: inset(0);
+    transform: none;
+  }
+}
+
+.glitch:hover {
+  animation: glitch 0.5s infinite;
+}
+
+.backdrop-glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scroll-mt-20 {
+  scroll-margin-top: 5rem; /* Tailwind utility for section spacing */
+}
